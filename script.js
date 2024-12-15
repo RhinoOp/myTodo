@@ -35,6 +35,5 @@ addButton.addEventListener("click",()=>{
     //clear the input
     document.getElementById("taskInput").value = "";
 
-    console.log(listenItem.innerHTML)
 
 });
