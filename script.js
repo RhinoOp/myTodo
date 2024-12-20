@@ -1,39 +1,55 @@
+const text = document.getElementById("text");
+const addButton = document.querySelector(".addTask");
+const taskList = document.querySelector(".tasksList");
+const totalTask = document.querySelector(".totalTask");
 
-let addButton = document.getElementById("taskAdd");
-let list = document.getElementById("ol");
+function UpdateTaskCount(){
+    let total = taskList.querySelectorAll("li").length;
+    totalTask.textContent = total;
 
-
-addButton.addEventListener("click",()=>{
-    let inPutTasks = document.getElementById("taskInput").value;
-
-    if (inPutTasks.trim() === "") {
-        alert("Please enter a task!");
-        return;
-    }
+}
 
 
-    //creating li element
-    let listenItem = document.createElement("li");
-    listenItem.textContent = inPutTasks;
-  
+function addTask() {
 
-    //create a delete button
-    let deleteButton = document.createElement("button");
-    deleteButton.textContent = "delete";
-    deleteButton.className = "taskAdd deletebtn"
-   
-    deleteButton.addEventListener("click", ()=>{
-        list.removeChild(listenItem);
+
+
+    addButton.addEventListener("click", () => {
+
+        let curTask = text.value;
+
+
+
+        //creaTing a li 
+        if (curTask.trim() !== "") {
+
+
+            let deleteTask = document.createElement("button");
+            deleteTask.textContent = "Delete";
+            deleteTask.className = "deleteButton";
+
+            let li = document.createElement("li");
+            li.textContent = curTask;
+            li.addButton;
+
+            deleteTask.addEventListener("click", () => {
+                taskList.removeChild(li);
+                UpdateTaskCount();
+            })
+
+            taskList.appendChild(li);
+            li.appendChild(deleteTask);
+            text.value = "";
+
+            UpdateTaskCount();
+
+        } else {
+            console.log("Enter a task!")
+        }
+
+
     })
 
-    //append the delete button to the <li>
-    listenItem.appendChild(deleteButton);
+}
 
-    //append the list to ol
-    list.appendChild(listenItem);
-
-    //clear the input
-    document.getElementById("taskInput").value = "";
-
-
-});
+addTask();

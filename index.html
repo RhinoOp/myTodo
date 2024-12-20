@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building a simple TO - DO list</title>
+    <title>To do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-    <div class="main">
-        <div class="topBar">
-            <h2>TO-DO-LIST</h2>
-            <form  class="form" id="form">
-                
-                <input type="text" id="taskInput" placeholder="Enter you task">
-                <button id="taskAdd" class="taskAdd">Add</button>
-            </form>
+    <main>
+
+
+        <div class="main">
+
+            <div class="addTaskBar">
+                <h2>TO - DO - LIST</h2>
+
+                <input type="text" id="text" placeholder="Enter a task">
+                <button class="addTask">Add</button>
+                <span class="totalTask"></span>
+            </div>
+
+            <div class="tasks">
+                <ol class="tasksList">
+                    
+                </ol>
+            </div>
+
         </div>
 
-        <div class="listBox">
-            <ol id="ol">
-                
-            </ol>
-        </div>
-    </div>
 
-
-
+    </main>
     <script src="script.js"></script>
 </body>
+
 </html>
